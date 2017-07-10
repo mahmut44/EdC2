@@ -1,8 +1,13 @@
-1. ) 
+-----------------------------------------------------------
+1. ) Créer un user
+-----------------------------------------------------------
 
 CREATE (Mahmut:User {id:'Mahmut', name:'Mahmut'})
 
+
+-----------------------------------------------------------
 2. ) Attribuer des preferences
+-----------------------------------------------------------
 
 MATCH (Mahmut:User),(m1:Movie)
 WHERE Mahmut.name = "Mahmut" AND m1.title = "James Bond"
@@ -32,8 +37,10 @@ CREATE (Mahmut)-[r:LIKES]->(s)
 RETURN r;
 
 
-3. ) Creer 2 messages avec un autre utilsateur existant (envoi, reception) BODY "texte"
 
+-----------------------------------------------------------
+3. ) Creer 2 messages avec un autre utilsateur existant (envoi, reception) BODY "texte"
+-----------------------------------------------------------
 
 
 CREATE (msg1:Message {id:70, body:'texte'}) ,
@@ -45,3 +52,21 @@ MATCH (Aline:User),(m:Message), (Marc:User), (m2:Message)
 WHERE Aline.name = "Aline" AND m.id = 70 AND Marc.name = "Marc" AND m2.id = 71
 CREATE (Aline)-[r:SENT]->(m)<-[z:REPLY_TO]-(m2)<-[y:SENT]-(Marc)
 RETURN r,z,y;
+
+
+4. ) Identifier le leader d opinion principale
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
