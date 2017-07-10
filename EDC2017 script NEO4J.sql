@@ -151,9 +151,15 @@ RETURN u,nbrfor,messages",
 
 5) Identifier 2 utilisaeur Points communs, creer relation know
 
-	MATCH (p:User)-[l:LIKES]->(z)
+	MATCH (p:User)-[l:LIKES]->(z)<-(p)
 	WITH u, count(z) as nbrlikes, collect(z) as item
 	RETURN u,nbrlikes,item
 	
 	
 	-- Olivier et Laura
+	
+MATCH (Olivier:User),(Laura:User)
+WHERE Olivier.name = "Olivier" AND Laura.name = "Laura"
+CREATE (Mahmut)<-[r:KNOWS]->(LAURA)
+RETURN r;
+	
